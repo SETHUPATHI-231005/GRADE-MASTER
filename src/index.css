@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FFFFF0;
+  --color-cyan-primary: #06B6D4;
+  --color-cyan-dark: #0891B2;
+  --color-cyan-light: #CFFAFE;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-ivory text-black font-sans antialiased selection:bg-cyan-primary/30;
+  }
+}
+
+@layer components {
+  .web-container {
+    @apply max-w-6xl mx-auto px-6 lg:px-12;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-cyan-primary/10 rounded-[2rem] shadow-2xl shadow-cyan-900/5;
+  }
+
+  .input-field {
+    @apply bg-white/40 backdrop-blur-sm border-2 border-black/5 rounded-2xl px-6 py-4 focus:border-cyan-primary/30 focus:bg-white/80 focus:ring-4 focus:ring-cyan-primary/10 focus:-translate-y-0.5 focus:shadow-lg focus:shadow-cyan-primary/5 outline-none transition-all duration-300 w-full text-lg font-medium placeholder:text-gray-400/40;
+    /* Hide spinners */
+    -moz-appearance: textfield;
+  }
+
+  .input-field::-webkit-outer-spin-button,
+  .input-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white font-bold py-5 px-10 rounded-2xl hover:bg-cyan-primary active:scale-95 transition-all duration-300 shadow-xl shadow-black/10 flex items-center justify-center gap-3 text-lg;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-black/10 text-black font-bold py-5 px-10 rounded-2xl hover:border-cyan-primary hover:text-cyan-primary active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 text-lg;
+  }
+
+  .hero-text {
+    @apply font-display text-6xl lg:text-8xl font-black tracking-tight leading-[0.9] uppercase;
+  }
+
+  .sub-label {
+    @apply text-xs font-black uppercase tracking-[0.3em] text-cyan-primary;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ivory;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cyan-primary/20 rounded-full border-4 border-ivory;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan-primary/40;
+}
+
